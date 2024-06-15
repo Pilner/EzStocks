@@ -1,0 +1,106 @@
+body {
+    height: 100vh;
+    display: flex;
+    margin: 0;
+    font-family: "Inter", sans-serif;
+  }
+  
+  #side {
+    flex: 0 0 25%;
+    background: #606060;
+    margin-right: 30px;
+  }
+  
+  #main {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 50px;
+    padding-top: 20px;
+    padding-left: 110px;
+    padding-right: 170px;
+  }
+  
+  #header {
+    margin-bottom: 30px;
+  }
+  
+  h1 {
+    margin: 10px 0;
+    font-size: 90px;
+  }
+  
+  #header p {
+    margin: 0 5px;
+    font-size: 16px;
+    color: #727272;
+  }
+  
+  form {
+    padding-left: 50px;
+  }
+  
+  .fields {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
+  
+  .form-column {
+    margin-right: 150px;
+  }
+  
+  .form-column:last-child {
+    margin-right: 0;
+  }
+  
+  .form-column label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 24px;
+    font-weight: 600;
+    width: 300px;
+  }
+  
+  .form-column input, .form-column select {
+    width: 300px;
+    height: 30px;
+  }
+  
+  #end {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    
+  }
+  
+  #agreement {
+    display: flex;
+    align-items: center;
+  }
+  
+  #agreement label {
+    margin-left: 5px;
+    font-size: 14px;
+  }
+  
+  #submit button {
+    width: 150px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    border: none;
+    background-color: #3B82F6;
+    cursor: pointer;
+  }
+  
+  #submit button:hover {
+    background-color: #2672ed;
+  }
+  
