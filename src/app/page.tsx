@@ -1,95 +1,103 @@
-import Image from "next/image";
+import Navbar from "@/_components/semantics/Navbar";
+import Footer from "@/_components/semantics/Footer";
 import styles from "./page.module.css";
+import Button from "@/_components/Button";
+import Card from "@/_components/Card";
+
+import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <>
+    <Navbar />
+    <section id={styles.hero}>
+      <div className="container">
+        <div className={styles.heroText}>
+          <h1 className="heroTitleFont">
+            Get a lock on your stocks
+          </h1>
+          <p className="heroSubTitleFont">
+            Lorem ipsum dolar sit amet constreteur
+          </p>
+          <Button text="Get Started" url="#" />
+        </div>
+        <div className={styles.heroImage}>
+          <Image
+            src="images/placeholder1.png"
+            alt="hero"
+            width={0}
+            height={0}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+            }}
+            unoptimized={true}
+          />
         </div>
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
+    </section>
+    <section id={styles.about}>
+      <div className="container">
+        <div>
+          <h1 className="sectionTitleFont">About us</h1>
+          <p className="sectionSubTitleFont">
+          EzStocks offers a user-friendly inventory management solution for small businesses. Our system simplifies inventory processes, reduces costs, and aids in making informed decisions with intuitive features and straightforward functionality.
           </p>
-        </a>
+        </div>
+        <div>
+          <div className={styles.aboutPictureSide}>
+            <Image
+              src="images/placeholder2.png"
+              alt="hero"
+              width={0}
+              height={0}
+              style={{
+                width: "100%",
+                height: "auto",
+                objectFit: "cover",
+              }}
+              unoptimized={true}
+            />
+          </div>
+          <div className={styles.aboutTextSide}>
+            <ul>
+              <li className="sectionTextFont">
+                <i className="fa-regular fa-square-check"></i> User-friendly interface
+              </li>
+              <li className="sectionTextFont">
+                <i className="fa-regular fa-square-check"></i> Accurate Inventory Data
+              </li>
+              <li className="sectionTextFont">
+                <i className="fa-regular fa-square-check"></i> Efficient inventory movement
+              </li>
+              <li className="sectionTextFont">
+                <i className="fa-regular fa-square-check"></i> Informed inventory decisions
+              </li>
+            </ul>
+            <Button text="Learn More" url="#" />
+          </div>
+        </div>
       </div>
-    </main>
+    </section>
+    <section id={styles.goals}>
+      <div className="container">
+        <div>
+          <h1 className="sectionTitleFont">Our goals</h1>
+          <p className="sectionSubTitleFont">
+          EzStocks aims to simplify inventory management for small businesses. We offer essential features like inventory tracking, order management, data visualization, and customer/supplier databases. Our user-friendly system helps startups reduce the need for extra manpower and resources, making inventory management easy and efficient.
+          </p>
+        </div>
+        <div>
+          <Card />
+          <Card />
+          <Card />
+        </div>
+
+      </div>
+    </section>
+    <Footer />
+    </>
+
   );
 }

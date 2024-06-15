@@ -1,0 +1,29 @@
+#footer {
+    background-color: white;
+    height: 30vh;
+    width: 100%;
+    border: 1px solid black;
+}
+
+#footer > div {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+}
+
+#footer > div > div {
+    border: 1px solid red;
+    max-width: 30%;
+    margin: 1rem 0;
+}
+
+
+#footer > div > div:first-child > img {
+    border-radius: 100%;
+}
+
+#footer > div > div:last-child > ul {
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+}

@@ -1,0 +1,25 @@
+.buttonDiv {
+    margin: 2em 0
+}
+
+.roundButton {
+	padding: 10px 25px;
+	color: white;
+	font-family: var(--sub-font);
+	background-color: black;
+	font-size: inherit;
+	font-weight: inherit;
+	border: none;
+	border-radius: 2.5px;
+	cursor: pointer;
+}
+
+.roundButton:hover {
+	background-color: var(--white);
+	color: var(--orange);
+	transition: .1s;
+}
+
+.roundButton:not(:hover) {
+	transition: .1s;
+}
