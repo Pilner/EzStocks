@@ -1,42 +1,44 @@
-body {
+.body {
     height: 100vh;
     display: flex;
     margin: 0;
-    font-family: "Inter", sans-serif;
+    font-family: var(--main-font);
+    background: white;
   }
   
-  #side {
-    flex: 0 0 25%;
+  .side {
+    flex: 0 0 18%;
     background: #606060;
-    margin-right: 30px;
+
   }
   
-  #main {
+  .main {
     display: flex;
     flex: 1;
     flex-direction: column;
     padding: 50px;
     padding-top: 20px;
     padding-left: 110px;
-    padding-right: 170px;
+    padding-right: 220px;
+    font-family: var(--main-font);
   }
   
-  #header {
+  .header {
     margin-bottom: 30px;
   }
   
-  h1 {
+  .headerText {
     margin: 10px 0;
-    font-size: 90px;
+    font-size: 80px;
   }
   
-  #header p {
+  .header .subText {
     margin: 0 5px;
     font-size: 16px;
     color: #727272;
   }
   
-  form {
+  .form {
     padding-left: 50px;
   }
   
@@ -45,51 +47,51 @@ body {
     flex-direction: column;
   }
   
-  .form-row {
+  .formRow {
     display: flex;
     justify-content: space-between;
     margin-bottom: 30px;
   }
   
-  .form-column {
+  .formColumn {
     margin-right: 150px;
   }
   
-  .form-column:last-child {
+  .formColumn:last-child {
     margin-right: 0;
   }
   
-  .form-column label {
+  .formColumn label {
     display: block;
     margin-bottom: 5px;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 600;
     width: 300px;
   }
   
-  .form-column input, .form-column select {
+  .formColumn input, .formColumn select {
     width: 300px;
     height: 30px;
   }
   
-  #end {
+  .end {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
     
   }
   
-  #agreement {
+  .agreement {
     display: flex;
     align-items: center;
   }
   
-  #agreement label {
+  .agreement label {
     margin-left: 5px;
     font-size: 14px;
   }
   
-  #submit button {
+  .submitButton {
     width: 150px;
     height: 50px;
     font-size: 20px;
@@ -100,7 +102,7 @@ body {
     cursor: pointer;
   }
   
-  #submit button:hover {
+  .submitButton:hover {
     background-color: #2672ed;
   }
   
