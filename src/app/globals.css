@@ -98,3 +98,31 @@ a {
     font-weight: 400;
     font-size: 16px;
 }
+
+.formsTitleFont{
+    font-family: var(--main-font);
+    font-weight: 600;
+    font-size: 100px;
+    color: #1E3A8A;
+}
+
+.formsSubTitleFont{
+    font-family: var(--secondary-font);
+    font-size: 16px;
+    font-weight: 600;
+    color: #727272;             
+
+}
+
+.formsTextFont{
+    font-family: var(--secondary-font);
+    font-size: 16px;
+    font-weight: 600; 
+}
+
+/* .formsTextFont{
+    font-family: var(--secondary-font);
+    font-size: 16px;
+     
+} */
+

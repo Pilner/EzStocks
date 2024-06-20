@@ -2,13 +2,12 @@
     height: 100vh;
     display: flex;
     margin: 0;
-    font-family: var(--main-font);
     background: white;
   }
   
   .side {
-    flex: 0 0 18%;
-    background: #606060;
+    flex: 0 0 25%;
+    background: #3B82F6;
 
   }
   
@@ -16,30 +15,30 @@
     display: flex;
     flex: 1;
     flex-direction: column;
-    padding: 50px;
-    padding-top: 20px;
-    padding-left: 110px;
-    padding-right: 220px;
-    font-family: var(--main-font);
+    justify-content: center;
+    margin: 0 3rem;
+    padding-right: 20rem;
   }
   
   .header {
-    margin-bottom: 30px;
+    margin-bottom: 3rem;
   }
   
-  .headerText {
-    margin: 10px 0;
-    font-size: 80px;
+  .header > h1 {
+    margin: 1rem 0;
   }
   
-  .header .subText {
-    margin: 0 5px;
-    font-size: 16px;
-    color: #727272;
+  .header > p {
+    margin: 0 0.5rem;
+  }
+
+  .main p a, .main label a {
+    color: #1496DF ;
+    text-decoration: underline;
   }
   
   .form {
-    padding-left: 50px;
+    padding-left: 3rem;
   }
   
   .fields {
@@ -50,28 +49,42 @@
   .formRow {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 30px;
+    margin-bottom: 2.5rem;
   }
   
   .formColumn {
-    margin-right: 150px;
+    width: 23rem;
   }
   
-  .formColumn:last-child {
-    margin-right: 0;
-  }
+  /* .formColumn:last-child {
+  } */
   
   .formColumn label {
     display: block;
-    margin-bottom: 5px;
-    font-size: 20px;
-    font-weight: 600;
-    width: 300px;
+    margin-bottom: 0.5rem;
   }
   
-  .formColumn input, .formColumn select {
-    width: 300px;
-    height: 30px;
+  .formColumn input {
+    width: 99.8%;
+    height: 2.5rem;
+    border: 1px solid;
+    border-radius: 10px;
+  }
+
+  .formColumn select {
+    width: 100%;
+    height: 2.75rem;
+    border: 1px solid;
+    border-radius: 10px;
+  
+  }
+
+  .inputDate {
+    text-indent: 0.5rem;
+  }
+
+  .inputField {
+    text-indent: 1rem;
   }
   
   .end {
@@ -87,22 +100,15 @@
   }
   
   .agreement label {
-    margin-left: 5px;
-    font-size: 14px;
+    margin-left: 7px;
   }
   
-  .submitButton {
+
+  .end button {
     width: 150px;
-    height: 50px;
-    font-size: 20px;
-    font-weight: 600;
-    color: white;
-    border: none;
+    font-size: 24px;
+    font-weight: 500;
     background-color: #3B82F6;
-    cursor: pointer;
-  }
-  
-  .submitButton:hover {
-    background-color: #2672ed;
+    border-radius: 10px;
   }
   
