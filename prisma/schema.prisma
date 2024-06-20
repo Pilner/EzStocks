@@ -18,10 +18,10 @@ model Users {
 	username		String		@unique
 	password_hash	String
 	Inventory		Inventory[]
-	User_Info		User_Info[]
+	UserInfo		UserInfo[]
 }
 
-model User_Info {
+model UserInfo {
 	user_id			Int			@id
 	first_name		String
 	last_name		String
