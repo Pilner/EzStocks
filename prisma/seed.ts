@@ -11,6 +11,7 @@ const initialUsers = [
 			last_name: "Doe",
 			email: "pilnerdoe@gmail.com",
 			phone_number: "09123456789",
+			gender: "Male"
 		}
 	},
 	{
@@ -21,6 +22,7 @@ const initialUsers = [
 			last_name: "Doe",
 			email: "johndoe@gmail.com",
 			phone_number: "09123456789",
+			gender: "Male"
 		},
 	},
 	{
@@ -31,6 +33,7 @@ const initialUsers = [
 			last_name: "Doe",
 			email: "alicedoe@gmail.com",
 			phone_number: "09123456789",
+			gender: "Female"
 		}
 	},
 	{
@@ -41,6 +44,7 @@ const initialUsers = [
 			last_name: "Doe",
 			email: "dogdoe@gmail.com",
 			phone_number: "09123456789",
+			gender: "Prefer not to say"
 		}
 	},
 ]
@@ -62,6 +66,7 @@ const seed = async () => {
 						last_name: user.UserInfo.last_name,
 						email: user.UserInfo.email,
 						phone_number: user.UserInfo.phone_number,
+						gender: user.UserInfo.gender
 					}
 				}
 			}
