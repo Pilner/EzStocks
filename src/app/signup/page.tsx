@@ -18,12 +18,12 @@ export default function Register() {
             <div className={styles.fields}>
               <div className={styles.formRow}>
                 <div className={styles.formColumn}>
-                  <label htmlFor="fname" className="formsTextFont">First Name</label>
-                  <input type="text" id="fname" name="fname" placeholder="John" className={styles.inputField} required />
+                  <label htmlFor="username" className="formsTextFont">Username</label>
+                  <input type="text" id="username" name="username" placeholder="johndoe" className={styles.inputField} required />
                 </div>
                 <div className={styles.formColumn}>
-                  <label htmlFor="lname" className="formsTextFont">Last Name</label>
-                  <input type="text" id="lname" name="lname" placeholder="Doe" className={styles.inputField} required />
+                  <label htmlFor="name" className="formsTextFont">Full Name</label>
+                  <input type="text" id="name" name="name" placeholder="John Doe" className={styles.inputField} required />
                 </div>
               </div>
 
@@ -74,9 +74,6 @@ export default function Register() {
                   I agree to the <a href="/terms">Terms of Use</a>, <a href="/privacy">Privacy Policy</a>, and <a href="/cookies">Cookies Policy</a>.
                 </label>
               </div>
-              {/* <div id="submit" className={styles.submit}>
-                <button className={styles.submitButton} type="submit">Sign Up</button>
-              </div> */}
 
               <Button text='Sign Up' url='#'/>
 
