@@ -13,7 +13,7 @@ export default function Login() {
             <div className={styles.main}>
                 <div id="header" className={styles.header}>
                     <h1 className="formsTitleFont">Sign In</h1>
-                    <p className="formsSubTitleFont">Don't have an account? <a href="/login">Sign Up</a></p>
+                    <p className="formsSubTitleFont">Don't have an account? <a href="/signup">Sign Up</a></p>
                 </div>
 
                 <form className={styles.form} action="">
