@@ -1,0 +1,123 @@
+.body {
+    height: 100vh;
+    display: flex;
+    margin: 0;
+    background: white;
+  }
+  
+.side {
+  flex: 0 0 25%;
+  background: #3B82F6;
+
+}
+
+.main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 3rem;
+  padding-right: 20rem;
+}
+
+.header {
+  margin-bottom: 3rem;
+}
+
+.header > h1 {
+  margin: 1rem 0;
+}
+
+.header > p {
+  margin: 0 0.5rem;
+}
+
+.main p a, .main label a {
+  color: #1496DF ;
+  text-decoration: underline;
+}
+
+.form {
+  padding-left: 3rem;
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+}
+
+.formRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2.5rem;
+}
+
+.formColumn {
+  width: 23rem;
+}
+
+
+.formColumn label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.formColumn input {
+  width: 99.8%;
+  height: 2.5rem;
+  border: 1px solid;
+  border-radius: 10px;
+}
+
+.formColumn select {
+  width: 100%;
+  height: 2.75rem;
+  border: 1px solid;
+  border-radius: 10px;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url(./arrow.png);
+  background-size: 12px;
+  background-repeat: no-repeat;
+  background-position: calc(100% - 16px) center;
+
+}
+
+.inputDate {
+  box-sizing: border-box;
+  padding-right: 1rem;
+  text-indent: 0.5rem;
+}
+
+.inputField {
+  box-sizing: border-box;
+  padding-right: 1rem;
+  text-indent: 1rem;
+
+}
+
+.end {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  
+}
+
+.agreement {
+  display: flex;
+  align-items: center;
+}
+
+.agreement label {
+  margin-left: 7px;
+}
+
+
+.end button {
+  width: 150px;
+  font-size: 24px;
+  font-weight: 500;
+  background-color: #3B82F6;
+  border-radius: 10px;
+}
+  
