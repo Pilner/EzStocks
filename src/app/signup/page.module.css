@@ -46,54 +46,18 @@
   flex-direction: column;
 }
 
+.fields > div{
+  margin-bottom: 2.5rem;
+}
+
+.fields > div:last-child{
+  margin-bottom: 1rem;
+}
+
 .formRow {
   display: flex;
   justify-content: space-between;
   margin-bottom: 2.5rem;
-}
-
-.formColumn {
-  width: 23rem;
-}
-
-
-.formColumn label {
-  display: block;
-  margin-bottom: 0.5rem;
-}
-
-.formColumn input {
-  width: 99.8%;
-  height: 2.5rem;
-  border: 1px solid;
-  border-radius: 10px;
-}
-
-.formColumn select {
-  width: 100%;
-  height: 2.75rem;
-  border: 1px solid;
-  border-radius: 10px;
-  -webkit-appearance: none;
-  appearance: none;
-  background-image: url(./arrow.png);
-  background-size: 12px;
-  background-repeat: no-repeat;
-  background-position: calc(100% - 16px) center;
-
-}
-
-.inputDate {
-  box-sizing: border-box;
-  padding-right: 1rem;
-  text-indent: 0.5rem;
-}
-
-.inputField {
-  box-sizing: border-box;
-  padding-right: 1rem;
-  text-indent: 1rem;
-
 }
 
 .end {
@@ -111,7 +75,6 @@
 .agreement label {
   margin-left: 7px;
 }
-
 
 .end button {
   width: 150px;

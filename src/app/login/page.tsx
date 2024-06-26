@@ -1,5 +1,6 @@
-import styles from './page.module.css';
+import styles from "./page.module.css";
 import Button from "@/_components/Button";
+import Input from "@/_components/Input";
 
 export default function Login() {
   return (
@@ -18,14 +19,12 @@ export default function Login() {
 
                 <form className={styles.form} action="">
                     <div className={styles.fields}>
-                        <div className={styles.formRow}>
-                            <label htmlFor="usernameOrEmail" className="formsTextFont">Username/Email</label>
-                            <input type="text" id="usernameOrEmail" name="usernameOrEmail" placeholder="Username/Email" className={styles.inputField} required />
+                        <div>
+                            <Input type="text" name="usernameOrEmail" label="Username/Email" placeholder="Username/Email" required></Input>
                         </div>
 
-                        <div className={styles.formRow}>
-                            <label htmlFor="pw" className="formsTextFont">Password</label>
-                            <input type="password" id="pw" name="pw" placeholder="••••••••••••••••" className={styles.inputField} required minLength={8} maxLength={24} />
+                        <div>
+                            <Input type="password" name="pw" label="Password" placeholder="••••••••••••••••" minLength={8} maxLength={16} required></Input>
                         </div>
                     </div>
                     
