@@ -44,5 +44,6 @@ model Products {
 	products_id		Int			@id @default(autoincrement())
 	product_name	String
 	product_price	Float
+	category		String
 	Inventory		Inventory[]
 }
