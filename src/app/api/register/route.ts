@@ -16,7 +16,7 @@ export async function POST(req: NextApiRequest, res: NextApiResponse) {
 	}
 	
 	// Get data from the registration form
-	const { username, password, first_name, last_name, email, phone_number } = req.body;
+	const { username, password, first_name, last_name, email, phone_number, gender } = req.body;
 
 	// check if the username already exists
 	const user = await prisma.users.findUnique({
@@ -28,7 +28,7 @@ export async function POST(req: NextApiRequest, res: NextApiResponse) {
 	}
 
 	try {
-		if (!username || !password || !first_name || !last_name || !email || !phone_number) {
+		if (!username || !password || !first_name || !last_name || !email || !phone_number || !gender) {
 			throw new Error("Bad Request");
 		}
 	} catch(error) {
@@ -48,13 +48,14 @@ export async function POST(req: NextApiRequest, res: NextApiResponse) {
 				password_hash
 			}
 		});
-		await prisma.user_Info.create({
+		await prisma.userInfo.create({
 			data: {
 				user_id: Users.user_id,
 				first_name,
 				last_name,
 				email,
-				phone_number
+				phone_number,
+				gender,
 			}
 		});
 
