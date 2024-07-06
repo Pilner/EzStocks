@@ -1,123 +1,59 @@
-.body {
+#registerPage {
     height: 100vh;
     display: flex;
-    margin: 0;
-    background: white;
-  }
-  
-.side {
-  flex: 0 0 25%;
-  background: #3B82F6;
-
+    background-color: white;
 }
 
-.main {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  justify-content: center;
-  margin: 0 3rem;
-  padding-right: 20rem;
+#registerPage > .designPart {
+    flex: 1;
+    background-color: var(--blue);
 }
 
-.header {
-  margin-bottom: 3rem;
+#registerPage > .infoPart {
+    flex: 3;
+    display: flex;
+    align-items: center;
 }
 
-.header > h1 {
-  margin: 1rem 0;
+.infoPart > div > div {
+    margin: 1rem 0;
 }
 
-.header > p {
-  margin: 0 0.5rem;
+.infoPart > div > div > p > a,
+.infoPart label a {
+    color: #1496DF;
+    /* text-decoration: underline dotted; */
 }
 
-.main p a, .main label a {
-  color: #1496DF ;
-  text-decoration: underline;
+#registerForm {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
-.form {
-  padding-left: 3rem;
+#registerForm div {
+	display: flex;
+	flex-direction: column;
+	width: 45%;
 }
 
-.fields {
-  display: flex;
-  flex-direction: column;
+#registerForm label,
+#registerForm input,
+#registerForm select {
+    width: 100%
 }
 
-.formRow {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 2.5rem;
+#registerForm input,
+#registerForm select {
+    margin-bottom: 1rem;
 }
 
-.formColumn {
-  width: 23rem;
+.infoPart .termsConditionPart {
+    display: flex;
+    justify-content: space-between;
 }
 
-
-.formColumn label {
-  display: block;
-  margin-bottom: 0.5rem;
+.infoPart .termsConditionPart > div {
+    display: flex;
+    align-items: center;
 }
-
-.formColumn input {
-  width: 99.8%;
-  height: 2.5rem;
-  border: 1px solid;
-  border-radius: 10px;
-}
-
-.formColumn select {
-  width: 100%;
-  height: 2.75rem;
-  border: 1px solid;
-  border-radius: 10px;
-  -webkit-appearance: none;
-  appearance: none;
-  background-image: url(./arrow.png);
-  background-size: 12px;
-  background-repeat: no-repeat;
-  background-position: calc(100% - 16px) center;
-
-}
-
-.inputDate {
-  box-sizing: border-box;
-  padding-right: 1rem;
-  text-indent: 0.5rem;
-}
-
-.inputField {
-  box-sizing: border-box;
-  padding-right: 1rem;
-  text-indent: 1rem;
-
-}
-
-.end {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  
-}
-
-.agreement {
-  display: flex;
-  align-items: center;
-}
-
-.agreement label {
-  margin-left: 7px;
-}
-
-
-.end button {
-  width: 150px;
-  font-size: 24px;
-  font-weight: 500;
-  background-color: #3B82F6;
-  border-radius: 10px;
-}
-  

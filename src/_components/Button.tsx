@@ -6,8 +6,9 @@ interface ButtonProps {
 	url: string;
 }
 
-interface SubmitButtonProps extends ButtonProps { 
-	value: string;
+interface SubmitButtonProps { 
+    text: string;
+	form: string;
 }
 
 export default function Button({ text, url }: ButtonProps) {
@@ -22,11 +23,11 @@ export default function Button({ text, url }: ButtonProps) {
 	);
 }
 
-export function SubmitButton({ text, value }: SubmitButtonProps) {
+export function SubmitButton({ text, form }: SubmitButtonProps) {
     return (
 
         <div className={styles.buttonDiv}>
-            <button type="submit" className={styles.roundButton} value={value}>
+            <button type="submit" className={styles.roundButton} form={form}>
                 {text}
             </button>
         </div>

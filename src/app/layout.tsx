@@ -1,8 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "EzStocks",
@@ -19,7 +16,7 @@ export default function RootLayout({
       <head>
         <script src="https://kit.fontawesome.com/ad98de5722.js" crossOrigin="anonymous"></script>
       </head>
-      <body className={inter.className}>{children}</body>
+      <body>{children}</body>
     </html>
   );
 }

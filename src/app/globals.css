@@ -20,6 +20,7 @@
 
 body {
     background-color: #e6e6e6;
+	font-family: var(--secondary-font);
 }
 
 * {
@@ -53,6 +54,59 @@ ol {
 a {
 	text-decoration: none;
 	color: inherit;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="date"],
+textarea,
+select {
+    font-family: inherit;
+    font-size: inherit;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    padding: 0.5rem 1rem;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="tel"]:focus,
+input[type="date"]:focus,
+textarea:focus,
+select:focus {
+    outline: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+input[type="checkbox"] {
+	width: 1.5rem;
+	aspect-ratio: 1/1;
+	margin: 0 1rem;
+
+}
+
+textarea {
+    font-family: var(--secondary-font);
+}
+
+select {
+    padding: 0.5rem;
+    border: 1.5px solid #58A1EF;
 }
 
 .heroTitleFont {
@@ -114,17 +168,21 @@ a {
     color: #1E3A8A;
 }
 
-.formsSubTitleFont{
+.formsSubtitleFont{
     font-family: var(--secondary-font);
     font-size: 16px;
     font-weight: 600;
-    color: #727272;             
-
+    color: #727272;
 }
 
 .formsTextFont{
     font-family: var(--secondary-font);
     font-size: 16px;
-    font-weight: 600; 
+    font-weight: 400;
 }
 
+.labelText {
+	font-size: 24px;
+	font-weight: 500;
+	color: #000;
+}

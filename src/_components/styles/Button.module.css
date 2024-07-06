@@ -6,11 +6,11 @@
 	padding: 10px 25px;
 	color: white;
 	font-family: var(--sub-font);
-	background-color: black;
+	background-color: var(--blue);
 	font-size: inherit;
 	font-weight: inherit;
 	border: none;
-	border-radius: 2.5px;
+	border-radius: 0.75rem;
 	cursor: pointer;
 }
 

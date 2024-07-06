@@ -1,89 +1,43 @@
+import Link from 'next/link';
 import styles from './page.module.css';
-import Button from "@/_components/Button";
+import { SubmitButton } from "@/_components/Button";
+import { InputText, InputNumber, InputGender, InputBirthday } from "@/_components/Input";
 
 export default function Register() {
-  return (
-      <div className={styles.body}>
-        <div className={styles.side}>
-        </div>
+    let githubLink = "https://github.com/Pilner/EzStocks";
+    return (
+        <section id={styles.registerPage}>
+            <div className={styles.designPart}></div>
+            <div className={styles.infoPart}>
+                <div className="container">
+                    <div>
+                        <h1 className='formsTitleFont'>Sign Up</h1>
+                        <p className="formsSubtitleFont">Already have an account? <Link href="/login">Login</Link></p>
+                    </div>
+                    <form id={styles.registerForm} action="#" method="post">
+                        <InputText type="text"  text="Username" inputId="username" name="username" placeholder="Enter Input" required={true}  />
+                        <InputText type="email"  text="Email" inputId="email" name="email" placeholder="Enter Input" required={true}  />
+                        <InputText type="text"  text="First Name" inputId="fname" name="fname" placeholder="Enter Input" required={true}  />
+                        <InputText type="text"  text="Last Name" inputId="lname" name="lname" placeholder="Enter Input" required={true}  />
+                        <InputNumber text="Mobile Number" inputId="mobilenumber" name="mobilenumber" placeholder="09XXXXXXXXX" negative={false} required={true}  />
+                        <InputText type="password"  text="Password" inputId="password1" name="password1" placeholder="••••••••••••••••" required={true}  />
+                        <InputText type="password"  text="Confirm Password" inputId="password2" name="password2" placeholder="••••••••••••••••" required={true}  />
+                        <InputGender />
 
-        <div className="container">
-          <div id="main" className={styles.main}>
-            <div id="header" className={styles.header}>
-              <h1 className="formsTitleFont">Sign Up</h1>
-              <p className="formsSubTitleFont">Already have an account? <a href="/login">Login</a></p>
+                        <InputBirthday />
+                    </form>
+                    <div className={styles.termsConditionPart}>
+                        <div>
+                            <input className="bodyTextFont" type="checkbox" name="terms" id="terms" required />
+                            <label htmlFor="terms" className="termsText">I agree to the <Link href={githubLink}>Terms of Use</Link>, <Link href={githubLink}>Privacy Policy</Link> and <Link href={githubLink}>Cookies Policy</Link>.</label>
+                        </div>
+                        <div>
+                            <SubmitButton text="Sign Up" form={styles.registerForm} />
+                        </div>
+                    </div>
+                </div>
+
             </div>
-          
-          <form className={styles.form} action="">
-            <div className={styles.fields}>
-              <div className={styles.formRow}>
-                <div className={styles.formColumn}>
-                  <label htmlFor="username" className="formsTextFont">Username</label>
-                  <input type="text" id="username" name="username" placeholder="johndoe" className={styles.inputField} required />
-                </div>
-                <div className={styles.formColumn}>
-                  <label htmlFor="name" className="formsTextFont">Full Name</label>
-                  <input type="text" id="name" name="name" placeholder="John Doe" className={styles.inputField} required />
-                </div>
-              </div>
-
-              <div className={styles.formRow}>
-                <div className={styles.formColumn}>
-                  <label htmlFor="email" className="formsTextFont">Email Address</label>
-                  <input type="email" id="email" name="email" placeholder="johndoe@gmail.com" className={styles.inputField} required />
-                </div>
-                <div className={styles.formColumn}>
-                  <label htmlFor="number" className="formsTextFont">Mobile Number</label>
-                  <input type="tel" id="number" name="number" placeholder="09XXXXXXXXX" pattern="[0-9]{11}" className={styles.inputField} required />
-                </div>
-              </div>
-
-              <div className={styles.formRow}>
-                <div className={styles.formColumn}>
-                  <label htmlFor="pw" className="formsTextFont">Password</label>
-                  <input type="password" id="pw" name="pw" placeholder="••••••••••••••••" className={styles.inputField} required minLength={8} maxLength={24} />
-                </div>
-                <div className={styles.formColumn}>
-                  <label htmlFor="pw-confirm" className="formsTextFont">Confirm Password</label>
-                  <input type="password" id="pw-confirm" name="pw-confirm" placeholder="••••••••••••••••" className={styles.inputField} required minLength={8} maxLength={24} />
-                </div>
-              </div>
-
-              <div className={styles.formRow}>
-                <div className={styles.formColumn}>
-                  <label htmlFor="gender" className="formsTextFont">Gender</label>
-                  <select id="gender" name="gender" className={styles.inputField} required>
-                    <option value="" disabled selected>Select your gender</option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                    <option value="Other">Other</option>
-                    <option value="not-prefer">Prefer not to say</option>
-                  </select>
-                </div>
-                <div className={styles.formColumn}>
-                  <label htmlFor="birthdate" className="formsTextFont">Date of Birth</label>
-                  <input type="date" id="birthdate" name="birthdate" className={styles.inputDate} required />
-                </div>
-              </div>
-            </div>
-
-            <div id="end" className={styles.end}>
-              <div id="agreement" className={styles.agreement}>
-                <input type="checkbox" id="agreement" name="agreement" required />
-                <label htmlFor="agreement" className="formsTextFont">
-                  I agree to the <a href="/terms">Terms of Use</a>, <a href="/privacy">Privacy Policy</a>, and <a href="/cookies">Cookies Policy</a>.
-                </label>
-              </div>
-
-              <Button text='Sign Up' url='#'/>
-
-              
-            </div>
-          </form>
-      
-      </div>
-      </div>
-    </div>
-  );
+        </section>
+    );
 };
-
