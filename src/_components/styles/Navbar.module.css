@@ -45,3 +45,32 @@ nav#navbar > div {
     font-weight: 600;
     font-size: 16px;
 }
+
+
+#sideNavbar {
+    background-color: var(--blue);
+    width: 10%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#sideNavbar .navProfile {
+    width: 100%;
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circle {
+    background-color: var(--white);
+    width: 50%;
+    height: 50%;
+    margin: auto;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

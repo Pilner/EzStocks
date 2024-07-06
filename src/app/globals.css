@@ -3,7 +3,15 @@
 :root {
     --main-font: "Poppins", sans-serif;
     --secondary-font: "Open Sans", sans-serif;
-
+    --black: #141414;
+    --white: #F3F4F6;
+    --gray: #606060;
+    --light-gray: #C8C8C8;
+    --blue: #3B82F6;
+    --space-blue: #2B3344;
+    --dark-blue: #1F2937;
+    --seafoam-green: #34D399;
+    --orange-yellow: #F59E0B;
 }
 
 ::-webkit-scrollbar {

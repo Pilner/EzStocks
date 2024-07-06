@@ -57,3 +57,17 @@ export default function Navbar() {
     </nav>
   )
 }
+
+export function SideNavbar() {
+    return(
+        <nav id={styles.sideNavbar}>
+            <div className={styles.navProfile}>
+                <div className={styles.circle}>
+                    <i className="fa-solid fa-user fa-large fa-xl"></i>
+                </div>
+            </div>
+            <div className={styles.navTabs}>
+            </div>
+        </nav>
+    )
+}

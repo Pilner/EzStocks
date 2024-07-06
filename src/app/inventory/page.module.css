@@ -1,0 +1,28 @@
+#inventory {
+    height: 100%;
+    display: flex;
+}
+
+.inventoryList {
+    width: 100%;
+}
+
+.inventoryList > .title {
+    border-bottom: 1px solid var(--black);
+    padding: 1rem 2.5rem;
+}
+
+.inventoryList table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.inventoryList table th,
+.inventoryList table td {
+    padding: 1rem 0;
+    text-align: center;
+}
+
+.inventoryList table th {
+    background-color: var(--light-gray);
+}
