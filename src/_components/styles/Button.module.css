@@ -5,18 +5,19 @@
 .roundButton {
 	padding: 10px 25px;
 	color: white;
-	font-family: var(--sub-font);
-	background-color: var(--blue);
+	font-family: var(--secondary-font);
+	background-color: var(--button-color);
 	font-size: inherit;
 	font-weight: inherit;
-	border: none;
+	border: 1px solid rgba(0,0,0,0);
 	border-radius: 0.75rem;
 	cursor: pointer;
 }
 
 .roundButton:hover {
 	background-color: var(--white);
-	color: var(--orange);
+    border: 1px solid rgba(0,0,0,0.5);
+	color: var(--black);
 	transition: .1s;
 }
 

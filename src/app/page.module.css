@@ -8,10 +8,15 @@
     height: 100%;
 }
 
-.heroText, .heroImage {
+.heroImage {
+    flex: 1;
+    height: auto;
+    align-self: center;
+}
+
+.heroText {
     flex: 1;
     height: 100%;
-    border: 1px solid red;
 }
 
 .heroText {
@@ -23,26 +28,25 @@
 /* ----------- */
 
 #about {
-    min-height: 100vh;
+    min-height: min-content;
     width: 100%;
+    margin: 5rem 0;
 }
 
 #about > div > div:first-child {
     text-align: center;
-    margin: 5rem 0;
+    margin-bottom: 5rem;
 }
 
 #about > div > div:last-child {
     display: flex;
     width: 100%;
-    gap: 1rem;
-    margin: 5rem 0;
+    gap: 5%;
 }
 
 #about > div > div:last-child > .aboutPictureSide,
 #about > div > div:last-child > .aboutTextSide {
     flex: 1;
-    border: 1px solid red;
     height: 100%;
 }
 
@@ -57,18 +61,11 @@
 /* ----------- */
 
 #goals {
-    min-height: 100vh;
+    min-height: min-content;
     width: 100%;
+    margin-bottom: 10rem;
 }
 
-#goals > div > div:first-child {
+#goals > div > div {
     text-align: center;
-    margin: 5rem 0;
-}
-
-#goals > div > div:last-child {
-    display: flex;
-    width: 100%;
-    gap: 1rem;
-    margin: 5rem 0;
 }
