@@ -59,6 +59,18 @@ ol {
 	margin: 0;
 }
 
+ul li > a {
+    border: 1px solid rgba(0, 0, 0, 0);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    transition: 500ms;
+}
+
+ul li > a:hover {
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    transition: 500ms;
+}
+
 a {
 	text-decoration: none;
 	color: inherit;
