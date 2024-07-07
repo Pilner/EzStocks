@@ -3,6 +3,7 @@ import Image from "next/image";
 
 import Button from "@/_components/Button";
 import styles from "../styles/Navbar.module.css";
+import aboutStyles from "@/app/page.module.css";
 
 export default function Navbar() {
   return (
@@ -33,19 +34,14 @@ export default function Navbar() {
                 <div>
                     <ul>
                         <li>
-                            <Link href="#" scroll={false}>
+                            <Link href="/" scroll={false}>
                                 Home
                             </Link>
                         </li>
                         <li>
-                            <Link href="#" scroll={false}>
+                            <a href={`/#${aboutStyles.about}`}>
                                 About
-                            </Link>                            
-                        </li>
-                        <li>
-                            <Link href="#" scroll={false}>
-                                Contact
-                            </Link>
+                            </a>                            
                         </li>
                         <li>
                             <Button text="Sign Up" url="/signup" />
