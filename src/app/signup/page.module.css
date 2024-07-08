@@ -1,0 +1,61 @@
+#registerPage {
+    min-height: 100vh;
+    display: flex;
+    background-color: white;
+}
+
+#registerPage > .designPart {
+    flex: 1;
+    background-color: var(--button-color);
+    display: flex;
+    min-height: 100%;
+}
+
+#registerPage > .infoPart {
+    flex: 3;
+    display: flex;
+    align-items: center;
+}
+
+.infoPart > div > div {
+    margin: 1rem 0;
+}
+
+.infoPart > div > div > p > a,
+.infoPart label a {
+    color: #1496DF;
+    /* text-decoration: underline dotted; */
+}
+
+#registerForm {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#registerForm div {
+	display: flex;
+	flex-direction: column;
+	width: 45%;
+}
+
+#registerForm label,
+#registerForm input,
+#registerForm select {
+    width: 100%
+}
+
+#registerForm input,
+#registerForm select {
+    margin-bottom: 1rem;
+}
+
+.infoPart .termsConditionPart {
+    display: flex;
+    justify-content: space-between;
+}
+
+.infoPart .termsConditionPart > div {
+    display: flex;
+    align-items: center;
+}

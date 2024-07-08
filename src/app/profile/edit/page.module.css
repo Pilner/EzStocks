@@ -1,0 +1,49 @@
+#editProfilePage {
+    min-height: 100vh;
+    display: flex;
+    background-color: white;
+}
+
+#editProfilePage > .infoPart {
+	width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.infoPart > div > div {
+    margin: 1rem 0;
+}
+
+.infoPart > div > div > p > a,
+.infoPart label a {
+    color: #1496DF;
+    /* text-decoration: underline dotted; */
+}
+
+#editProfileForm {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#editProfileForm div {
+	display: flex;
+	flex-direction: column;
+	width: 45%;
+}
+
+#editProfileForm label,
+#editProfileForm input,
+#editProfileForm select {
+    width: 100%
+}
+
+#editProfileForm input,
+#editProfileForm select {
+    margin-bottom: 1rem;
+}
+
+.infoPart .buttonPart > div {
+    align-items: center;
+	text-align: right;
+}
