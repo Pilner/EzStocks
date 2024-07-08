@@ -16,7 +16,18 @@ export async function POST(req: NextApiRequest, res: NextApiResponse) {
 	}
 	
 	// Get data from the registration form
-	const { username, password, first_name, last_name, email, phone_number, gender } = req.body;
+	const {
+		username,
+		password,
+		fname: first_name,
+		lname: last_name,
+		email,
+		mobilenumber: phone_number,
+		gender,
+		birthdate
+	} = await new Response(req.body).json();
+
+	const birthday = new Date(birthdate);
 
 	// check if the username already exists
 	const user = await prisma.users.findUnique({
@@ -28,7 +39,7 @@ export async function POST(req: NextApiRequest, res: NextApiResponse) {
 	}
 
 	try {
-		if (!username || !password || !first_name || !last_name || !email || !phone_number || !gender) {
+		if (!username || !password || !first_name || !last_name || !email || !phone_number || !gender || !birthday) {
 			throw new Error("Bad Request");
 		}
 	} catch(error) {
@@ -56,6 +67,7 @@ export async function POST(req: NextApiRequest, res: NextApiResponse) {
 				email,
 				phone_number,
 				gender,
+				birthday
 			}
 		});
 
@@ -63,6 +75,7 @@ export async function POST(req: NextApiRequest, res: NextApiResponse) {
 
 	} catch(error) {
 		if (error as Error) {
+			console.log(error);
 			return new Response(JSON.stringify({ status: 500, message: "Server Error" }), { headers });
 		}
 	}

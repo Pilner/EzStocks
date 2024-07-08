@@ -1,3 +1,7 @@
+'use client'
+
+import  { FormEvent } from 'react';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './page.module.css';
@@ -6,7 +10,51 @@ import { InputText, InputNumber, InputGender, InputBirthday } from "@/_component
 
 export default function Register() {
     let githubLink = "https://github.com/Pilner/EzStocks";
-    return (
+
+	async function onSubmit(e: FormEvent<HTMLFormElement>) {
+		// Prevent the form from submitting
+		e.preventDefault();
+
+		// Get the form data
+		let formData = new FormData(e.currentTarget);
+
+		if (formData.get("password") !== formData.get("password2")) {
+			alert("Passwords do not match");
+			return;
+		}
+
+		formData.delete("password2");
+
+		// Convert the form data to JSON
+		let jsonData = JSON.stringify(Object.fromEntries(formData));
+
+		// Send the data to the server
+		fetch("/api/register", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: jsonData,
+		})
+			.then((response) => response.json())
+			.then((data) => {
+				console.log(data);
+				if (data.status == 409) {
+					alert("Username already exists");
+				}
+				if (data.status == 400) {
+					alert("Bad Request");
+				}
+				if (data.status == 201) {
+					window.location.href = "/login";
+				}
+			})
+			.catch((error) => {
+				console.error("Error:", error);
+			});		
+	}
+
+	return (
         <section id={styles.registerPage}>
             <div className={styles.designPart}>
                 <Image
@@ -30,16 +78,15 @@ export default function Register() {
                         <h1 className='formsTitleFont'>Sign Up</h1>
                         <p className="formsSubtitleFont">Already have an account? <Link href="/login">Login</Link></p>
                     </div>
-                    <form id={styles.registerForm} action="#" method="post">
+                    <form id={styles.registerForm} onSubmit={onSubmit}>
                         <InputText type="text"  text="Username" inputId="username" name="username" placeholder="Enter Input" required={true}  />
                         <InputText type="email"  text="Email" inputId="email" name="email" placeholder="Enter Input" required={true}  />
                         <InputText type="text"  text="First Name" inputId="fname" name="fname" placeholder="Enter Input" required={true}  />
                         <InputText type="text"  text="Last Name" inputId="lname" name="lname" placeholder="Enter Input" required={true}  />
                         <InputNumber text="Mobile Number" inputId="mobilenumber" name="mobilenumber" placeholder="09XXXXXXXXX" negative={false} required={true}  />
-                        <InputText type="password"  text="Password" inputId="password1" name="password1" placeholder="••••••••••••••••" required={true}  />
+                        <InputText type="password"  text="Password" inputId="password" name="password" placeholder="••••••••••••••••" required={true}  />
                         <InputText type="password"  text="Confirm Password" inputId="password2" name="password2" placeholder="••••••••••••••••" required={true}  />
                         <InputGender />
-
                         <InputBirthday />
                     </form>
                     <div className={styles.termsConditionPart}>
