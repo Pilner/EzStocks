@@ -26,23 +26,23 @@
     /* text-decoration: underline dotted; */
 }
 
-#loginForm {
+#forgotForm {
     display: block;
 }
 
-#loginForm div {
+#forgotForm div {
 	display: flex;
 	flex-direction: column;
 	width: 50%;
 }
 
-#loginForm label,
-#loginForm input,
-#loginForm select {
+#forgotForm label,
+#forgotForm input,
+#forgotForm select {
     width: 100%
 }
 
-#loginForm input,
-#loginForm select {
+#forgotForm input,
+#forgotForm select {
     margin-bottom: 1rem;
 }

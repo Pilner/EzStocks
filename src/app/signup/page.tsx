@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './page.module.css';
 import { SubmitButton } from "@/_components/Button";
 import { InputText, InputNumber, InputGender, InputBirthday } from "@/_components/Input";
@@ -7,7 +8,22 @@ export default function Register() {
     let githubLink = "https://github.com/Pilner/EzStocks";
     return (
         <section id={styles.registerPage}>
-            <div className={styles.designPart}></div>
+            <div className={styles.designPart}>
+                <Image
+                    alt="Background Design"
+                    src="/images/signinout-bg.svg"
+                    width={0}
+                    height={0}
+                    style={{
+                        height: "80%",
+                        width: "100%",
+                        objectFit: "cover",
+                        alignSelf: "center",
+                        objectPosition: "30% 50%"
+                    }}
+                    unoptimized={true}
+                />
+            </div>
             <div className={styles.infoPart}>
                 <div className="container">
                     <div>

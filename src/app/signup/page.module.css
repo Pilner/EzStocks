@@ -1,12 +1,14 @@
 #registerPage {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     background-color: white;
 }
 
 #registerPage > .designPart {
     flex: 1;
-    background-color: var(--blue);
+    background-color: var(--button-color);
+    display: flex;
+    min-height: 100%;
 }
 
 #registerPage > .infoPart {

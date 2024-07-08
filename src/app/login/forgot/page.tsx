@@ -26,18 +26,21 @@ export default function Login() {
             <div className={styles.infoPart}>
                 <div className="container">
                     <div>
-                        <h1 className='formsTitleFont'>Sign In</h1>
-                        <p className="formsSubtitleFont">Don&apos;t have an account? <Link href="/signup">Sign Up</Link></p>
+                        <h1 className='formsTitleFont'>Forgot Password</h1>
+                        <p className="formsSubtitleFont">Return back to <Link href="/login">Login</Link></p>
                     </div>
-                    <form id={styles.loginForm} action="#" method="GET">
-                        <InputText type="text" text="Username" inputId="username" name="username" placeholder="Enter Input" required={true}  />
-                        <InputText type="password" text="Password" inputId="password" name="password" placeholder="Enter Input" required={true}  />
+                    <form id={styles.forgotForm} action="#" method="POST">
+                        <InputText
+                            type="email"
+                            text="Enter your email"
+                            inputId="username"
+                            name="username"
+                            placeholder="Enter Input"
+                            required={true}
+                        />
                     </form>
                     <div className={styles.termsConditionPart}>
-                        <div>
-                            <Link href="/login/forgot">Forgot password?</Link>
-                        </div>
-                        <SubmitButton text="Sign Up" form={styles.loginForm} />
+                        <SubmitButton text="Reset Password" form={styles.forgotForm} />
                     </div>
                 </div>
 
