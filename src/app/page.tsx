@@ -12,7 +12,7 @@ export default function Home() {
             <section id={styles.hero}>
                 <div className="container">
                     <div className={styles.heroText}>
-                        <h1 className="heroTitleFont main-accent">
+                        <h1 className="heroTitleFont sub-accent">
                             Get a lock on your stocks
                         </h1>
                         <p className="heroSubTitleFont">
@@ -39,7 +39,7 @@ export default function Home() {
             <section id={styles.about}>
                 <div className="container">
                     <div>
-                        <h1 className="sectionTitleFont main-accent">About us</h1>
+                        <h1 className="sectionTitleFont sub-accent">About us</h1>
                         <p className="sectionSubTitleFont">
                             EzStocks offers a user-friendly inventory management solution for small businesses. Our system simplifies inventory processes, reduces costs, and aids in making informed decisions with intuitive features and straightforward functionality.
                         </p>
@@ -61,16 +61,16 @@ export default function Home() {
                         <div className={styles.aboutTextSide}>
                             <ul>
                                 <li className="sectionTextFont">
-                                    <i className="fa-regular fa-square-check"></i> <span className="main-accent">User-friendly interface</span>
+                                    <i className="fa-regular fa-square-check"></i> <span className="sub-accent">User-friendly interface</span>
                                 </li>
                                 <li className="sectionTextFont">
-                                    <i className="fa-regular fa-square-check"></i> <span className="main-accent">Accurate Inventory Data</span>
+                                    <i className="fa-regular fa-square-check"></i> <span className="sub-accent">Accurate Inventory Data</span>
                                 </li>
                                 <li className="sectionTextFont">
-                                    <i className="fa-regular fa-square-check"></i> <span className="main-accent">Efficient inventory movement</span>
+                                    <i className="fa-regular fa-square-check"></i> <span className="sub-accent">Efficient inventory movement</span>
                                 </li>
                                 <li className="sectionTextFont">
-                                    <i className="fa-regular fa-square-check"></i> <span className="main-accent">Informed inventory decisions</span>
+                                    <i className="fa-regular fa-square-check"></i> <span className="sub-accent">Informed inventory decisions</span>
                                 </li>
                             </ul>
                             <Button text="Learn More" url="#" />
@@ -81,7 +81,7 @@ export default function Home() {
             <section id={styles.goals}>
                 <div className="container">
                     <div>
-                        <h1 className="sectionTitleFont main-accent">Our goals</h1>
+                        <h1 className="sectionTitleFont sub-accent">Our goals</h1>
                         <p className="sectionSubTitleFont">
                             EzStocks aims to simplify inventory management for small businesses. We offer essential features like inventory tracking, order management, data visualization, and customer/supplier databases. Our user-friendly system helps startups reduce the need for extra manpower and resources, making inventory management easy and efficient.
                         </p>

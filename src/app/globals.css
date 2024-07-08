@@ -4,7 +4,8 @@
     --main-font: "Poppins", sans-serif;
     --secondary-font: "Open Sans", sans-serif;
 
-    --main-accent: #1E3A8A;
+    --main-accent: #3B82F6;
+    --sub-accent: #1E3A8A;
 
     --body-text-color: #374151;
     --footer-text-color: #272D2C;
@@ -15,10 +16,17 @@
     --whitebg: #F4F4F4;
 
     --header-link-color: #111827;
+
+	--table-header-color: #C8C8C8;
+	--table-row-color: #F4F4F4;
+	--row-selected-color: #90BAFF;
 }
 
 .main-accent {
     color: var(--main-accent);
+}
+.sub-accent {
+    color: var(--sub-accent);
 }
 
 ::-webkit-scrollbar {
