@@ -1,3 +1,8 @@
+'use client';
+
+import { getCsrfToken, signIn } from "next-auth/react";
+import { useState, useEffect } from "react";
+
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './page.module.css';
@@ -5,6 +10,41 @@ import { SubmitButton } from "@/_components/Button";
 import { InputText } from "@/_components/Input";
 
 export default function Login() {
+
+	const [csrfToken, setCsrfToken] = useState<string | undefined>("");
+
+	useEffect(() => {
+		const fetchData = async () => {
+			const csrfToken = await getCsrfToken();
+			setCsrfToken(csrfToken);
+		}
+		fetchData();
+	}, []);
+
+	async function onSubmit(e: any) {
+		e.preventDefault();
+		const formData = new FormData(e.currentTarget);
+        formData.append("csrfToken", csrfToken ?? "");
+
+		try {
+			const result = await signIn("credentials", {
+				redirect: false,
+				username: formData.get("username") as string,
+				password: formData.get("password") as string,
+			})
+
+			if (result?.error) {
+				throw new Error(result.error);
+			} else if (result?.ok) {
+				window.location.href = "/";
+			}
+
+		} catch (error) {
+			alert("Invalid Username or Password");
+			console.error(error);
+		}
+	}
+
     return (
         <section id={styles.loginPage}>
             <div className={styles.designPart}>
@@ -29,7 +69,7 @@ export default function Login() {
                         <h1 className='formsTitleFont'>Sign In</h1>
                         <p className="formsSubtitleFont">Don&apos;t have an account? <Link href="/signup">Sign Up</Link></p>
                     </div>
-                    <form id={styles.loginForm} action="#" method="GET">
+                    <form id={styles.loginForm} onSubmit={onSubmit} method="POST">
                         <InputText type="text" text="Username" inputId="username" name="username" placeholder="Enter Input" required={true}  />
                         <InputText type="password" text="Password" inputId="password" name="password" placeholder="Enter Input" required={true}  />
                     </form>
