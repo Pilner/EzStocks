@@ -126,7 +126,7 @@ export function SideNavbar() {
                         <p>Inventory Manager</p>
                     </div>
                 </Link>
-                <Link href="#" className={styles.sideNavbarLinks}>
+                <Link href="/profile/edit" className={styles.sideNavbarLinks}>
                     <div>
                         <i className="fa-solid fa-user fa-2xl"></i>
                     </div>
