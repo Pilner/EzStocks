@@ -28,6 +28,9 @@ model UserInfo {
 	email			String
 	phone_number	String
 	gender			String
+	birthday		DateTime
+	createdAt		DateTime	@default(now())
+	updatedAt		DateTime	@updatedAt
 	Users			Users		@relation(fields: [user_id], references: [user_id])
 }
 
@@ -45,5 +48,6 @@ model Products {
 	product_name	String
 	product_price	Float
 	category		String
+	added_date		DateTime 	@default(now())
 	Inventory		Inventory[]
 }
