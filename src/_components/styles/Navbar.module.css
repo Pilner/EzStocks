@@ -49,29 +49,58 @@ nav#navbar > div {
 
 
 #sideNavbar {
-    background-color: var(--blue);
-    width: 10%;
+    background-color: var(--main-accent);
+    width: 20%;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    font-family: var(--main-font);
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--white);
 }
 
 #sideNavbar .navProfile {
-    width: 100%;
-    aspect-ratio: 1/1;
+    width: 90%;
+    height: 100%;
+    margin: 1rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#sideNavbar .navProfile > .sideNavbarProfile {
+    display: flex;
+    gap: 1rem;
+}
+
+#sideNavbar .navProfile > .sideNavbarLinks {
+    display: flex;
+    gap: 1rem;
+    padding: 1.5rem;
+    transition: 250ms;
+    border-radius: 1rem;
+}
+
+.sideNavbarLinks:hover {
+    transition: 250ms;
+    background-color: var(--row-selected-color);
+}
+
+.sideNavbarProfile .profileName {
     display: flex;
     align-items: center;
-    justify-content: center;
 }
 
 .circle {
     background-color: var(--white);
-    width: 50%;
-    height: 50%;
-    margin: auto;
+    width: 5rem;
+    aspect-ratio: 1/1;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: var(--black);
 }

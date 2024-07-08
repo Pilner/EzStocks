@@ -11,6 +11,11 @@ interface SubmitButtonProps {
 	form: string;
 }
 
+interface FunctionButtonProps {
+	text: string;
+	onClick: () => void;
+}
+
 export default function Button({ text, url }: ButtonProps) {
 	return (
 		<div className={styles.buttonDiv}>
@@ -21,6 +26,16 @@ export default function Button({ text, url }: ButtonProps) {
 			</Link>
 		</div>
 	);
+}
+
+export function FunctionButton({ text, onClick }: FunctionButtonProps) {
+	return (
+		<div className={styles.buttonDiv}>
+			<button className={styles.roundButton} onClick={onClick}>
+				{text}
+			</button>
+		</div>
+	)
 }
 
 export function SubmitButton({ text, form }: SubmitButtonProps) {
