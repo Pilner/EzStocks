@@ -29,7 +29,7 @@ export default function Register() {
 		let jsonData = JSON.stringify(Object.fromEntries(formData));
 
 		// Send the data to the server
-		fetch("/api/register", {
+		fetch("/api/auth/register", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",

@@ -220,7 +220,7 @@ export default function Inventory() {
 async function getInventoryData() {
 	// Fetch the data from the server
 	try {
-		const response = await fetch("/api/inventory/get", {
+		const response = await fetch("/api/get/inventory", {
 			method: "GET",
 			headers: {
 				"Content-Type": "application/json",

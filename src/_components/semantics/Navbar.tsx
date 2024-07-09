@@ -139,7 +139,7 @@ export function SideNavbar() {
 		if (session) {
 			const user_id = (session?.user as SessionUser)?.id;
 
-			fetch(`/api/getFullUser/${user_id}`, {
+			fetch(`/api/get/user/full`, {
 				method: "GET",
 				headers: {
 					"Content-Type": "application/json",
