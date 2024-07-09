@@ -18,7 +18,7 @@ model Users {
 	username		String		@unique
 	password_hash	String
 	Inventory		Inventory[]
-	UserInfo		UserInfo[]
+	UserInfo		UserInfo?
 }
 
 model UserInfo {
@@ -39,6 +39,7 @@ model Inventory {
 	user_id			Int
 	products_id		Int
 	quantity		Int
+	updatedAt		DateTime	@updatedAt
 	Users			Users		@relation(fields: [user_id], references: [user_id])
 	Products		Products	@relation(fields: [products_id], references: [products_id])
 }
@@ -48,6 +49,6 @@ model Products {
 	product_name	String
 	product_price	Float
 	category		String
-	added_date		DateTime 	@default(now())
+	createdAt		DateTime 	@default(now())
 	Inventory		Inventory[]
 }
