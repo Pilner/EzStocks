@@ -1,3 +1,6 @@
+import { getServerSession } from 'next-auth/next'
+import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+
 import { prisma } from "@/lib/prisma";
 import { NextApiRequest } from "next";
 
@@ -7,17 +10,33 @@ interface params {
     }
 }
 
-// GET Get user by user_id
-// GET /api/getUser/[id]
-export async function GET(req: NextApiRequest, params: params) {
+interface SessionUser {
+	id?: string;
+	name?: string | null;
+	email?: string | null;
+	image?: string | null;
+}
 
-    const user_id = parseInt(params.params.id);
+
+// GET Get user by user_id from session
+// GET /api/get/user/
+export async function GET(req: NextApiRequest, params: params) {
 
 	// Set headers
 	let headers = {
 		"Content-Type": "application/json",
 	};
+	
+	const session = await getServerSession(authOptions);
+	if (!session) {
+		return new Response(JSON.stringify({
+			status: 401,
+			message: "Unauthorized"
+		}), { headers });
+	}
 
+	const user_id = parseInt((session?.user as SessionUser)?.id?.toString() ?? "0");
+	
 	// Check if the request method is POST
 	if (req.method !== "GET") {
 		return new Response(JSON.stringify({ status: 405, message: "Method not allowed" }), { headers });
