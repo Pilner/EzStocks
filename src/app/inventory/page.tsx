@@ -1,18 +1,34 @@
 'use client';
 
-import { useEffect, useRef } from "react";
+import { useEffect, useState, useRef, FormEvent } from "react";
+
+import { useSession } from "next-auth/react";
 
 import styles from "./page.module.css";
 import { SideNavbar } from "@/_components/semantics/Navbar";
 import { FunctionButton, SubmitButton } from "@/_components/Button";
 import { InputText } from "@/_components/Input";
 
+interface SessionUser {
+	id?: string;
+	name?: string | null;
+	email?: string | null;
+	image?: string | null;
+}
+
 export default function Inventory() {
 
 	// useRef to get the addItems div
 	const addItemsRef = useRef(null);
 	const mainPageRef = useRef(null);
+	
+	const [data, setData] = useState<any>(null);
 
+	useEffect(() => {
+		getInventoryData().then((data) => {
+			setData(data);
+		});
+	}, []);
 
     function showAddItems() {
         if (addItemsRef.current && mainPageRef.current) {
@@ -26,6 +42,57 @@ export default function Inventory() {
 			(addItemsRef.current as HTMLDivElement).classList.remove(`${styles.active}`);
 			(mainPageRef.current as HTMLDivElement).classList.remove(`${styles.inactive}`);
 		}
+	}
+
+	async function handleFormSubmit(e: FormEvent<HTMLFormElement>) {
+		// Prevent the form from submitting
+		e.preventDefault();
+
+		// Get the form data
+		let formData = new FormData(e.currentTarget);
+
+		// Convert the form data to JSON
+		let jsonData = JSON.stringify(Object.fromEntries(formData));
+
+
+		// Send the data to the server
+		fetch("/api/inventory/add", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: jsonData,
+		})
+			.then((response) => response.json())
+			.then((data) => {
+				console.log(data);
+				if (data.status == 409) {
+					alert("Username already exists");
+				}
+				if (data.status == 400) {
+					alert("Bad Request");
+				}
+				if (data.status == 201) {
+					getInventoryData().then((data) => {
+						setData(data);
+					});
+
+					if (addItemsRef.current && mainPageRef.current) {
+						(
+							addItemsRef.current as HTMLDivElement
+						).classList.remove(`${styles.active}`);
+						(
+							mainPageRef.current as HTMLDivElement
+						).classList.remove(`${styles.inactive}`);
+					}
+
+					// Clear the form
+					(e.target as HTMLFormElement).reset();
+				}
+			})
+			.catch((error) => {
+				console.error("Error:", error);
+			});
 	}
 
 
@@ -44,7 +111,7 @@ export default function Inventory() {
 					<div>
 						<div className={styles.inventoryInfo}>
 							<div>
-								<p className="heroSubTitleFont">Total Items: 10</p>
+								<p className="heroSubTitleFont">Total Items: {(data != null) ? data.rows.length : 0}</p>
 							</div>
 							<div>
 								<p className="heroSubTitleFont">
@@ -64,38 +131,41 @@ export default function Inventory() {
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>Downey</td>
-									<td>Laundry</td>
-									<td>P9.99</td>
-									<td>999</td>
-									<td>12/04/23</td>
-									<td>Ok</td>
-								</tr>
-								<tr>
-									<td>Downey</td>
-									<td>Laundry</td>
-									<td>P9.99</td>
-									<td>999</td>
-									<td>12/04/23</td>
-									<td>Ok</td>
-								</tr>
-								<tr>
-									<td>Downey</td>
-									<td>Laundry</td>
-									<td>P9.99</td>
-									<td>999</td>
-									<td>12/04/23</td>
-									<td>Ok</td>
-								</tr>
-								<tr>
-									<td>Downey</td>
-									<td>Laundry</td>
-									<td>P9.99</td>
-									<td>999</td>
-									<td>12/04/23</td>
-									<td>Ok</td>
-								</tr>
+								{(data != null) ? (
+									(data.rows.length > 0) ? 
+										data.rows.map((item: any) => {
+											return (
+												<tr
+													key={item.Products.inventory_id}
+												>
+													<td>
+														{item.Products.product_name}
+													</td>
+													<td>
+														{item.Products.category}
+														</td>
+													<td>
+														₱{(item.Products.product_price).toFixed(2)}
+													</td>
+													<td>
+														{item.quantity}
+														</td>
+													<td>
+														{item.updatedAt}
+													</td>
+													<td>Ok</td>
+												</tr>
+											);
+										}) : (
+										<tr>
+											<td colSpan={6}>Empty</td>
+										</tr>
+									)
+								) : (
+									<tr>
+										<td colSpan={6}>Empty</td>
+									</tr>
+								)}
 							</tbody>
 						</table>
 					</div>
@@ -106,7 +176,7 @@ export default function Inventory() {
 				<div id={styles.closeButton} onClick={hideAddItems}>
 					<i className="fa-solid fa-xmark fa-2xl"></i>
 				</div>
-				<form id={styles.addItemForm} action="#" method="POST">
+				<form id={styles.addItemForm} onSubmit={handleFormSubmit} method="POST">
 					<InputText
 						type="text"
 						text="Product Name"
@@ -145,4 +215,21 @@ export default function Inventory() {
 		</section>
 	);
 
+}
+
+async function getInventoryData() {
+	// Fetch the data from the server
+	try {
+		const response = await fetch("/api/inventory/get", {
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json",
+			},
+		});
+		const data = await response.json();
+		return data;
+	} catch (error) {
+		console.error("Error:", error);
+		return null;
+	}
 }
