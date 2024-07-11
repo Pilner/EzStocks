@@ -7,7 +7,7 @@ import { useSession } from "next-auth/react";
 import styles from "./page.module.css";
 import { SideNavbar } from "@/_components/semantics/Navbar";
 import { FunctionButton, SubmitButton } from "@/_components/Button";
-import { InputText } from "@/_components/Input";
+import { InputText, InputTextReadOnly } from "@/_components/Input";
 
 interface SessionUser {
 	id?: string;
@@ -21,8 +21,12 @@ export default function Inventory() {
 	// useRef to get the addItems div
 	const addItemsRef = useRef(null);
 	const mainPageRef = useRef(null);
+	const productNameInputRef = useRef<HTMLInputElement>(null);
 	
 	const [data, setData] = useState<any>(null);
+	const [productNameExisting, setProductNameExisting] = useState<boolean>(false);
+	const [category, setCategory] = useState<string>("");
+	const [price, setPrice] = useState<string>("");
 
 	useEffect(() => {
 		getInventoryData().then((data) => {
@@ -44,6 +48,37 @@ export default function Inventory() {
 		}
 	}
 
+	async function deleteProduct(products_id: number) {
+
+		// Send the data to the server
+		fetch("/api/delete/inventory/product", {
+			method: "DELETE",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({ products_id: products_id }),
+		})
+			.then((response) => response.json())
+			.then((data) => {
+				console.log(data);
+				if (data.status == 404) {
+					alert("Not Found");
+				} else if (data.status == 400) {
+					alert("Bad Request");
+				} else if (data.status == 500) {
+					alert("Internal Server Error");
+				} else if (data.status == 200) {
+					getInventoryData().then((data) => {
+						setData(data);
+					});
+				}
+			})
+			.catch((error) => {
+				console.error("Error:", error);
+			});
+	
+	}
+
 	async function handleFormSubmit(e: FormEvent<HTMLFormElement>) {
 		// Prevent the form from submitting
 		e.preventDefault();
@@ -56,7 +91,7 @@ export default function Inventory() {
 
 
 		// Send the data to the server
-		fetch("/api/inventory/add", {
+		fetch("/api/add/inventory/products", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -66,8 +101,8 @@ export default function Inventory() {
 			.then((response) => response.json())
 			.then((data) => {
 				console.log(data);
-				if (data.status == 409) {
-					alert("Username already exists");
+				if (data.status == 401) {
+					alert("Unauthorized");
 				}
 				if (data.status == 400) {
 					alert("Bad Request");
@@ -95,7 +130,29 @@ export default function Inventory() {
 			});
 	}
 
+	// retrieve value of productNameInputRef on not focused
+	productNameInputRef.current?.addEventListener("focusout", () => {
+		if (productNameInputRef.current?.value != "") {
 
+			if (data != null) {
+				// if the product name already exists
+				let existing = data.rows.some((item: any) => {
+					return item.Products.product_name == productNameInputRef.current?.value;
+				});
+
+				// set the state of productNameExisting
+				if (existing) {
+					setProductNameExisting(true);
+					setCategory(data.rows.filter((item: any) => item.Products.product_name == productNameInputRef.current?.value)[0].Products.category);
+					setPrice(data.rows.filter((item: any) => item.Products.product_name == productNameInputRef.current?.value)[0].Products.product_price.toFixed(2).toString());
+				} else {
+					setProductNameExisting(false);
+				}
+			} else {
+				setProductNameExisting(false);
+			}
+		}
+	});
 
     return (
 		<section id={styles.inventory}>
@@ -135,9 +192,7 @@ export default function Inventory() {
 									(data.rows.length > 0) ? 
 										data.rows.map((item: any) => {
 											return (
-												<tr
-													key={item.Products.inventory_id}
-												>
+												<tr key={item.Products.inventory_id}>
 													<td>
 														{item.Products.product_name}
 													</td>
@@ -151,9 +206,11 @@ export default function Inventory() {
 														{item.quantity}
 														</td>
 													<td>
-														{item.updatedAt}
+														{`${new Date(item.updatedAt).toLocaleDateString()} ${new Date(item.updatedAt).toLocaleTimeString()}`}
 													</td>
-													<td>Ok</td>
+													<td>
+														<i className="fa-solid fa-xmark fa-xl" style={{color: "red", cursor: "pointer"}} onClick={() => {deleteProduct(item.Products.products_id)}}></i>
+													</td>
 												</tr>
 											);
 										}) : (
@@ -184,23 +241,52 @@ export default function Inventory() {
 						name="productname"
 						placeholder="Enter Product Name"
 						required={true}
+						ref={productNameInputRef}
 					/>
-					<InputText
-						type="text"
-						text="Category"
-						inputId="category"
-						name="category"
-						placeholder="Enter Category"
-						required={true}
-					/>
-					<InputText
-						type="text"
-						text="Price"
-						inputId="price"
-						name="price"
-						placeholder="Enter Price"
-						required={true}
-					/>
+					{!productNameExisting ? (
+						<>
+						<InputText
+							type="text"
+							text="Category"
+							inputId="category"
+							name="category"
+							placeholder="Enter Category"
+							required={true}
+						/>
+						<InputText
+							type="text"
+							text="Price"
+							inputId="price"
+							name="price"
+							placeholder="Enter Price"
+							required={true}
+						/>
+						</>
+
+					) : (
+						// rerun the function to get the value of the product name input
+						<>
+						<InputTextReadOnly
+							type="text"
+							text="Category"
+							inputId="category"
+							name="category"
+							value={category}
+							placeholder="Enter Category"
+							required={true}
+						/>
+						<InputTextReadOnly
+							type="text"
+							text="Price"
+							inputId="price"
+							name="price"
+							value={price}
+							placeholder="Enter Price"
+							required={true}
+						/>
+						</>
+
+					)}
 					<InputText
 						type="text"
 						text="Quantity"

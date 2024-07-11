@@ -58,7 +58,10 @@ export async function POST(req: NextApiRequest, res: NextApiResponse) {
 
 	try {
 		const productData = await prisma.products.findFirst({
-			where: { product_name }
+			where: {
+				product_name,
+				createdBy: user_id!
+			}
 		});
 
 		// Need to implement if product exist then discard product_price
@@ -66,7 +69,7 @@ export async function POST(req: NextApiRequest, res: NextApiResponse) {
 		if (productData) {
 			const userInventoryData = await prisma.inventory.findFirst({
 				where: {
-					user_id: user_id,
+					user_id: user_id!,
 					products_id: productData.products_id
 				}
 			});
@@ -106,7 +109,8 @@ export async function POST(req: NextApiRequest, res: NextApiResponse) {
 				data: {
 					product_name,
 					category,
-					product_price
+					product_price,
+					createdBy: user_id!
 				}
 			});
 
