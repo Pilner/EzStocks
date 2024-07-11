@@ -49,6 +49,7 @@ model Products {
 	product_name	String
 	product_price	Float
 	category		String
+	createdBy		Int
 	createdAt		DateTime 	@default(now())
 	Inventory		Inventory[]
 }
