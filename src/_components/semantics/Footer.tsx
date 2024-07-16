@@ -9,14 +9,15 @@ export default function Footer() {
             <div className="container">
                 <div>
                     <Image
-                        src="/images/placeholder1.png"
+                        src="/images/Logo_Bottom_Text.svg"
                         alt="logo"
                         width={0}
                         height={0}
                         style={{
                             width: "100px",
                             height: "100px",
-                            objectFit: "cover",
+                            objectFit: "contain",
+							border: "1px solid rgba(0,0,0,0.2)"
                         }}
                         unoptimized={true}
                     />

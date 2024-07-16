@@ -40,20 +40,19 @@ export default function Navbar() {
 			<div className="container">
 				<div className={styles.navLogoSide}>
 					<div className={styles.navLogoImg}>
-						{/* <Image
-                        src="/logo.png"
-                        alt="logo"
-                        width={0}
-                        height={0}
-                        style={{
-                            width: "auto",
-                            height: "100%"
-                        }}
-                        unoptimized={true}
-                    /> */}
-					</div>
-					<div className={styles.navLogoText}>
-						<p>EzStocks</p>
+						<a href="/">
+							<Image
+								src="/images/Logo_Text.svg"
+								alt="logo"
+								width={0}
+								height={0}
+								style={{
+									width: "auto",
+									height: "50%",
+								}}
+								unoptimized={true}
+							/>
+						</a>
 					</div>
 				</div>
 				<div className={styles.navLinkSide}>
@@ -73,7 +72,7 @@ export default function Navbar() {
 								</li>
 							) : (
 								<li>
-									<Button text="Sign Up" url="/signup" />
+									<Button text="Sign In" url="/login" />
 								</li>
 							
 							)}
@@ -91,20 +90,19 @@ export function AuthenticatedNavbar() {
 			<div className="container">
 				<div className={styles.navLogoSide}>
 					<div className={styles.navLogoImg}>
-						{/* <Image
-                        src="/logo.png"
-                        alt="logo"
-                        width={0}
-                        height={0}
-                        style={{
-                            width: "auto",
-                            height: "100%"
-                        }}
-                        unoptimized={true}
-                    /> */}
-					</div>
-					<div className={styles.navLogoText}>
-						<p>EzStocks</p>
+						<a href="/">
+							<Image
+								src="/images/Logo_Text.svg"
+								alt="logo"
+								width={0}
+								height={0}
+								style={{
+									width: "auto",
+									height: "50%",
+								}}
+								unoptimized={true}
+							/>
+						</a>
 					</div>
 				</div>
 				<div className={styles.navLinkSide}>

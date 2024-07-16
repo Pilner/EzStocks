@@ -9,7 +9,13 @@
     background-color: var(--button-color);
     display: flex;
     min-height: 100%;
+	position: relative;
 }
+
+#loginPage > .designPart > .logoImg {
+	position: absolute;
+}
+
 
 #loginPage > .infoPart {
     flex: 3;

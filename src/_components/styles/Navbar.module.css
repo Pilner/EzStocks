@@ -19,6 +19,21 @@ nav#navbar > div {
 .navLogoSide {
     /* flex: 1; */
     border: 1px solid red;
+	height: 100%;
+}
+
+.navLogoSide .navLogoImg {
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+
+.navLogoSide .navLogoImg > a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+
 }
 
 .navLogoSide .navLogoText {

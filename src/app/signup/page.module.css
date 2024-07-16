@@ -9,6 +9,11 @@
     background-color: var(--button-color);
     display: flex;
     min-height: 100%;
+	position: relative;
+}
+
+#registerPage > .designPart > .logoImg {
+	position: absolute;
 }
 
 #registerPage > .infoPart {
