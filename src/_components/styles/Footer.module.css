@@ -12,7 +12,7 @@
 }
 
 #footer > div > div {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     max-width: 30%;
     margin: 1rem 0;
     align-self: center;

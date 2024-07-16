@@ -18,7 +18,7 @@ nav#navbar > div {
     
 .navLogoSide {
     /* flex: 1; */
-    border: 1px solid red;
+    /* border: 1px solid red; */
 	height: 100%;
 }
 
@@ -43,7 +43,7 @@ nav#navbar > div {
 }
 
 .navLinkSide {
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
 
 }
 
