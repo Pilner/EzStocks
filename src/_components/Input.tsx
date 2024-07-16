@@ -1,4 +1,5 @@
 import styles from "./styles/Input.module.css";
+import { forwardRef } from "react";
 
 export type InputType = "text" | "email" | "password";
 
@@ -7,25 +8,53 @@ interface InputProps {
 	inputId: string;
 	name: string;
 	placeholder: string;
-	required: boolean;
+	required?: boolean;
+	ref?: any;
 }
 
 interface InputTextProps extends InputProps {
 	type: InputType;
 }
 
+interface InputTextReadOnlyProps extends InputTextProps {
+	value: string;
+}
+
 interface InputNumberProps extends InputProps {
 	negative: boolean;
 }
 
-export function InputText({
+export const InputText = forwardRef<HTMLInputElement, InputTextProps>(
+	({ type, text, inputId, name, placeholder, required }: InputTextProps, ref) => {
+		return (
+			<div className={styles.inputStyle}>
+				<label htmlFor={name} className="labelText">
+					{text}
+				</label>
+				<input
+					type={type}
+					id={inputId}
+					name={name}
+					className="formsTextFont"
+					placeholder={placeholder}
+					required={required}
+					ref={ref}
+				/>
+			</div>
+		);
+	}
+);
+
+export function InputTextReadOnly({
 	type,
 	text,
 	inputId,
 	name,
 	placeholder,
 	required,
-}: InputTextProps) {
+	ref,
+	value,
+}: InputTextReadOnlyProps) {
 	return (
 		<div className={styles.inputStyle}>
 			<label htmlFor={name} className="labelText">
@@ -36,12 +65,16 @@ export function InputText({
 				id={inputId}
 				name={name}
 				className="formsTextFont"
+				value={value}
 				placeholder={placeholder}
-				required={required}
+				ref={ref}
+				readOnly={true}
 			/>
 		</div>
 	);
 }
+
+
 
 export function InputNumber({
 	text,
