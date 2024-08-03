@@ -1,0 +1,54 @@
+#loginPage {
+    min-height: 100vh;
+    display: flex;
+    background-color: white;
+}
+
+#loginPage > .designPart {
+    flex: 1;
+    background-color: var(--button-color);
+    display: flex;
+    min-height: 100%;
+	position: relative;
+}
+
+#loginPage > .designPart > .logoImg {
+	position: absolute;
+}
+
+
+#loginPage > .infoPart {
+    flex: 3;
+    display: flex;
+    align-items: center;
+}
+
+.infoPart > div > div {
+    margin: 1rem 0;
+}
+
+.infoPart a {
+    color: #1496DF;
+    /* text-decoration: underline dotted; */
+}
+
+#loginForm {
+    display: block;
+}
+
+#loginForm div {
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+}
+
+#loginForm label,
+#loginForm input,
+#loginForm select {
+    width: 100%
+}
+
+#loginForm input,
+#loginForm select {
+    margin-bottom: 1rem;
+}

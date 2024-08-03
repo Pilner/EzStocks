@@ -1,0 +1,39 @@
+#footer {
+    background-color: var(--whitebg);
+    height: 30vh;
+    width: 100%;
+    color: var(--footer-text-color);
+}
+
+#footer > div {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+}
+
+#footer > div > div {
+    /* border: 1px solid red; */
+    max-width: 30%;
+    margin: 1rem 0;
+    align-self: center;
+}
+
+
+#footer > div > div:first-child > img {
+    border-radius: 100%;
+}
+
+#footer > div > div:last-child h1 {
+    text-align: center;
+    padding-bottom: 1rem;
+}
+
+#footer > div > div:last-child > ul {
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+}
+
+#footer > div > div:last-child > ul li {
+    margin: 0 0.5rem;
+}
